@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { authService } from "../../fbase";
-import { auth } from "firebase";
+import { authService, firebaseInstance } from "../../fbase";
 
 const Auth = () => {
     const [email, setEmail] = useState("");
-    const [password, setPasswrod] = useState("");
+    const [password, setpassword] = useState("");
     const [newAccount, setNewAccount] = useState(true);
     const [error, setError] = useState("");
     const onChange = (event) => {
@@ -12,7 +11,7 @@ const Auth = () => {
         if (name === "email") {
             setEmail(value)
         } else if (name === "password") {
-            setPasswrod(value)
+            setpassword(value)
         }
     };
 
@@ -22,20 +21,31 @@ const Auth = () => {
             let data
             if (newAccount) {
                 //create account
-                data = authService.createUserWithEmailAndPassword(email, password);
+                data = await authService.createUserWithEmailAndPassword(email, password);
             }
             else {
                 //log in
-                data = await authService.signInWithEmailAndPassword(email.password);
+                data = await authService.signInWithEmailAndPassword(email, password);
             }
             console.log(data)
         }
         catch (error) {
-            setEmail(error.message)
+            setError(error.message)
         }
     }
 
     const toggleAccount = () => setNewAccount((prev) => !prev);
+    const onSocialClick = async (event) => {
+        const { target: { name } } = event;
+        let provider;
+        if (name === "google") {
+            provider = new firebaseInstance.auth.GoogleAuthProvider();
+        } else if (name === "github") {
+            provider = new firebaseInstance.auth.GithubAuthProvider();
+        }
+        const data = await authService.signInWithPopup(provider);
+        console.log(data);
+    }
     return (
         <div>
             <form onSubmit={onSubmit}>
@@ -60,8 +70,8 @@ const Auth = () => {
             </form>
             <span onClick={toggleAccount}>{newAccount ? "Sign in" : "Create Account"}</span>
             <div>
-                <button>Sign up with Google</button>
-                <button>Sign up with GitHub</button>
+                <button onClick={onSocialClick} name="google">Sign up with Google</button>
+                <button onClick={onSocialClick} name="github">Sign up with GitHub</button>
             </div>
         </div>
     );
