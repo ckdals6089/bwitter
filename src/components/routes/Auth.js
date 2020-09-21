@@ -70,8 +70,8 @@ const Auth = () => {
             </form>
             <span onClick={toggleAccount}>{newAccount ? "Sign in" : "Create Account"}</span>
             <div>
-                <button onClick={onSocialClick} name="google">Sign up with Google</button>
-                <button onClick={onSocialClick} name="github">Sign up with GitHub</button>
+                <button onClick={onSocialClick} name="google">Continue with Google</button>
+                <button onClick={onSocialClick} name="github">Continue with GitHub</button>
             </div>
         </div>
     );
