@@ -6,7 +6,7 @@ import Bweet from "components/Bweet";
 const Home = ({ userObj }) => {
     const [bweet, setbweet] = useState("");
     const [bweets, setbweets] = useState([]);
-    const [attachment, setAttachment] = useState();
+    const [attachment, setAttachment] = useState("");
     useEffect(() => {
         dbService.collection("bweets").onSnapshot((snapshot) => {
             const bweetArray = snapshot.docs.map((doc) => ({
@@ -71,7 +71,7 @@ const Home = ({ userObj }) => {
                 <input type="submit" value="bweet" />
                 {attachment && (
                     <div>
-                        <img src={attachment} width="50px" height="50px" />
+                        <image alt="bweet image" src={attachment} width="50px" height="50px" />
                         <button onClick={onClearAttachment}>Clear</button>
                     </div>
                 )}
