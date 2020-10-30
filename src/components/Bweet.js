@@ -1,20 +1,21 @@
 import React, { useState } from "react";
-import { dbService } from "fbase";
+import { dbService, storageService } from "fbase";
 
 const Bweet = ({ bweetObj, isOwner }) => {
     const [editing, setEditing] = useState(false);
-    const [newbweet, setNewbweet] = useState(bweetObj.text);
+    const [newBweet, setNewBweet] = useState(bweetObj.text);
     const onDeleteClick = async () => {
         const ok = window.confirm("Are you sure you want to delete this bweet?");
         if (ok) {
             await dbService.doc(`bweets/${bweetObj.id}`).delete();
+            await storageService.refFromURL(bweetObj.attachmentUrl).delete();
         }
     };
     const toggleEditing = () => setEditing((prev) => !prev);
     const onSubmit = async (event) => {
         event.preventDefault();
         await dbService.doc(`bweets/${bweetObj.id}`).update({
-            text: newbweet,
+            text: newBweet,
         });
         setEditing(false);
     };
@@ -22,7 +23,7 @@ const Bweet = ({ bweetObj, isOwner }) => {
         const {
             target: { value },
         } = event;
-        setNewbweet(value);
+        setNewBweet(value);
     };
     return (
         <div>
@@ -32,17 +33,20 @@ const Bweet = ({ bweetObj, isOwner }) => {
                         <input
                             type="text"
                             placeholder="Edit your bweet"
-                            value={newbweet}
+                            value={newBweet}
                             required
                             onChange={onChange}
                         />
-                        <input type="submit" value="Update bweet" />
+                        <input type="submit" value="Update Bweet" />
                     </form>
                     <button onClick={toggleEditing}>Cancel</button>
                 </>
             ) : (
                     <>
                         <h4>{bweetObj.text}</h4>
+                        {bweetObj.attachmentUrl && (
+                            <img src={bweetObj.attachmentUrl} width="50px" height="50px" />
+                        )}
                         {isOwner && (
                             <>
                                 <button onClick={onDeleteClick}>Delete Bweet</button>
