@@ -3,32 +3,31 @@ import { dbService } from "fbase";
 import Bweet from "components/Bweet";
 
 const Home = ({ userObj }) => {
-    const [bweet, setBweet] = useState("");
-    const [bweets, setBweets] = useState([]);
-
+    const [bweet, setbweet] = useState("");
+    const [bweets, setbweets] = useState([]);
     useEffect(() => {
         dbService.collection("bweets").onSnapshot((snapshot) => {
-            const bweetArray = snapshot.docs.map(doc => ({
+            const bweetArray = snapshot.docs.map((doc) => ({
                 id: doc.id,
                 ...doc.data(),
             }));
-            setBweets(bweetArray);
-        })
+            setbweets(bweetArray);
+        });
     }, []);
     const onSubmit = async (event) => {
         event.preventDefault();
         await dbService.collection("bweets").add({
             text: bweet,
             createdAt: Date.now(),
-            creatorID: userObj.uid,
+            creatorId: userObj.uid,
         });
-        setBweet("");
+        setbweet("");
     };
     const onChange = (event) => {
         const {
             target: { value },
         } = event;
-        setBweet(value);
+        setbweet(value);
     };
     return (
         <div>
@@ -40,14 +39,15 @@ const Home = ({ userObj }) => {
                     placeholder="What's on your mind?"
                     maxLength={120}
                 />
-                <input type="submit" value="Bweet" />
+                <input type="submit" value="bweet" />
             </form>
             <div>
-                {bweets.map(bweet => (
-                    <Bweet
+                {bweets.map((bweet) => (
+                    <bweet
                         key={bweet.id}
                         bweetObj={bweet}
-                        isOwner={bweet.creatorID === userObj.uid} />
+                        isOwner={bweet.creatorId === userObj.uid}
+                    />
                 ))}
             </div>
         </div>
