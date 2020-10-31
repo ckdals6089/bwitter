@@ -45,7 +45,7 @@ const Bweet = ({ bweetObj, isOwner }) => {
                     <>
                         <h4>{bweetObj.text}</h4>
                         {bweetObj.attachmentUrl && (
-                            <image alt="bweet image" src={bweetObj.attachmentUrl} width="50px" height="50px" />
+                            <img alt="" src={bweetObj.attachmentUrl} width="50px" height="50px" />
                         )}
                         {isOwner && (
                             <>
