@@ -4,21 +4,24 @@ import Bweet from "components/Bweet";
 import CreateBweetForm from "components/CreateBweetForm";
 
 const Home = ({ userObj }) => {
-    const [bweets, setbweets] = useState([]);
+    const [bweets, setBweets] = useState([]);
     useEffect(() => {
-        dbService.collection("bweets").onSnapshot((snapshot) => {
-            const bweetArray = snapshot.docs.map((doc) => ({
-                id: doc.id,
-                ...doc.data(),
-            }));
-            setbweets(bweetArray);
-        });
+        dbService
+            .collection("bweets")
+            .orderBy("createdAt", "desc")
+            .onSnapshot((snapshot) => {
+                const bweetArray = snapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data(),
+                }));
+                setBweets(bweetArray);
+            });
     }, []);
 
     return (
-        <div>
+        <div className="container">
             <CreateBweetForm userObj={userObj} />
-            <div>
+            <div className="marginTop30">
                 {bweets.map((bweet) => (
                     <Bweet
                         key={bweet.id}

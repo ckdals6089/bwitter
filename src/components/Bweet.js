@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { dbService, storageService } from "fbase";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 
 const Bweet = ({ bweetObj, isOwner }) => {
     const [editing, setEditing] = useState(false);
@@ -26,10 +28,10 @@ const Bweet = ({ bweetObj, isOwner }) => {
         setNewBweet(value);
     };
     return (
-        <div>
+        <div className="bweet">
             {editing ? (
                 <>
-                    <form onSubmit={onSubmit}>
+                    <form onSubmit={onSubmit} className="container bweetEdit">
                         <input
                             type="text"
                             placeholder="Edit your bweet"
@@ -37,22 +39,35 @@ const Bweet = ({ bweetObj, isOwner }) => {
                             required
                             onChange={onChange}
                         />
-                        <input type="submit" value="Update Bweet" />
+                        <input type="submit" value="Update Bweet" className="formBtn" />
                     </form>
-                    <button onClick={toggleEditing}>Cancel</button>
+                    <span onClick={toggleEditing} className="formBtn cancelBtn">
+                        Cancel
+                    </span>
                 </>
             ) : (
                     <>
                         <h4>{bweetObj.text}</h4>
-                        {bweetObj.attachmentUrl && (
-                            <img alt="" src={bweetObj.attachmentUrl} width="50px" height="50px" />
-                        )}
-                        {isOwner && (
-                            <>
-                                <button onClick={onDeleteClick}>Delete Bweet</button>
-                                <button onClick={toggleEditing}>Edit Bweet</button>
-                            </>
-                        )}
+                        {bweetObj.attachmentUrl && <img alt="" src={bweetObj.attachmentUrl} />}
+                        {isOwner ? (
+                            <div className="bweet__actions">
+                                <span onClick={onDeleteClick}>
+                                    <FontAwesomeIcon icon={faTrash} />
+                                </span>
+                                <span onClick={toggleEditing}>
+                                    <FontAwesomeIcon icon={faPencilAlt} />
+                                </span>
+                                <span>
+                                    by {bweetObj.creatorName}
+                                </span>
+                            </div>
+                        ) : (
+                                <div className="bweet__actions">
+                                    <span>
+                                        by {bweetObj.creatorName}
+                                    </span>
+                                </div>
+                            )}
                     </>
                 )}
         </div>
