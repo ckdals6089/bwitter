@@ -1,0 +1,120 @@
+/* Bwitter Factory */
+
+.factoryForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.factoryInput__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.factoryInput__input {
+  flex-grow: 1;
+  height: 40px;
+  padding: 0px 20px;
+  color: White;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 12px;
+  background-color: #253341;
+}
+
+.factoryInput__arrow {
+  position: absolute;
+  right: 0;
+  background-color: #253341;
+  height: 40px;
+  width: 40px;
+  padding: 10px 0px;
+  text-align: center;
+  border-radius: 20px;
+  color: white;
+}
+
+.factoryInput__label {
+  color: #04aaff;
+  cursor: pointer;
+}
+
+.factoryInput__label span {
+  margin-right: 10px;
+  font-size: 12px;
+}
+
+.factoryForm__attachment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.factoryForm__attachment img {
+  height: 150px;
+  width: 150px;
+  border-radius: 10px;
+}
+
+.factoryForm__clear {
+  color: white;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* Bweet */
+
+.bweetEdit .formBtn {
+  cursor: pointer;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.bweet {
+  margin-bottom: 20px;
+  background-color: #253341;
+  width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.bweet h4 {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.bweet img {
+  align-self: center;
+  border-radius: 10px;
+  width: 200px;
+  height: 200px;
+  margin-top: 10px;
+}
+.bweet__writer {
+  position: absolute;
+  left: 10px;
+  top: 5px;
+}
+.bweet__actions {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.bweet__actions span {
+  cursor: pointer;
+}
+
+.bweet__actions span:first-child {
+  margin-right: 10px;
+}

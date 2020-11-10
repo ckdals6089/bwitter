@@ -38,10 +38,10 @@ export default ({ refreshUser, userObj }) => {
                 <input
                     type="submit"
                     value="Update Profile"
-                    className="formBtn"
+                    className="profileFormBtn"
                 />
             </form>
-            <span className="formBtn cancelBtn logOut" onClick={onLogOutClick}>
+            <span className="profileCancelBtn logOut" onClick={onLogOutClick}>
                 Log Out
             </span>
         </div>

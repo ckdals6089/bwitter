@@ -1,0 +1,61 @@
+/* Navigation */
+.bwitterIcon {
+  margin-right: 140px;
+  margin-bottom: 30px;
+}
+.linkProfile {
+  transform: translateY(250px);
+  margin-right: 45px;
+}
+header {
+  height: 100%;
+  width: 30%;
+}
+
+header .header_container {
+  display: flex;
+  position: absolute;
+  top: 20%;
+  left: 21%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transform: translateY(-20%);
+}
+header div nav ul li {
+  width: 100%;
+  letter-spacing: 1px;
+  font-size: 20px;
+  margin-bottom: 25px;
+  padding: 8px 12px;
+}
+
+header div nav ul li:hover .fontIcon {
+  color: #04aaff;
+}
+header div nav ul li:hover {
+  border-radius: 20px;
+  background-color: #192d40;
+  color: #04aaff;
+}
+
+.navUl {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+.fontIcon {
+  width: 100%;
+  color: white;
+  margin-right: 20px;
+}
+.twitterLink {
+  margin-right: 10px;
+}
+.profileLink {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+}

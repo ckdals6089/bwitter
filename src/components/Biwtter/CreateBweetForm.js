@@ -84,7 +84,6 @@ const CreateBweetForm = ({ userObj }) => {
                         }}
                     />
                     <div className="factoryForm__clear" onClick={onClearAttachment}>
-                        <span>Remove</span>
                         <FontAwesomeIcon icon={faTimes} />
                     </div>
                 </div>

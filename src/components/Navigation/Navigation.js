@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { faHome, faCalendar, faUser, faEnvelopeOpenText, faBell, faBookmark, faList, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faCalendar, faUser, faEnvelopeOpenText, faBell, faBookmark, faListAlt, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 
 // const Navigation = ({ userObj }) => (
 //     <nav className="navnav">
@@ -40,23 +40,22 @@ const Navigation = ({ userObj }) => {
                 </div>
                 <nav>
                     <ul>
-                        <li><FontAwesomeIcon className="fontIcon" icon={faHome} size="1x" />Explore</li>
+                        <Link to="/"><li><FontAwesomeIcon className="fontIcon" icon={faHome} size="1x" />Home</li></Link>
                         <li><FontAwesomeIcon className="fontIcon" icon={faCalendar} size="1x" />Explore</li>
-                        <li><FontAwesomeIcon className="fontIcon" icon={faEnvelopeOpenText} size="1x" />Explore</li>
-                        <li><FontAwesomeIcon className="fontIcon" icon={faBell} size="1x" />Explore</li>
-                        <li><FontAwesomeIcon className="fontIcon" icon={faBookmark} size="1x" />Explore</li>
-                        <li><FontAwesomeIcon className="fontIcon" icon={faList} size="1x" />Explore</li>
-                        <li><FontAwesomeIcon className="fontIcon" icon={faEllipsisH} size="1x" />Explore</li>
-                        <li><FontAwesomeIcon className="fontIcon" icon={faUser} size="1x" />Explore</li>
+                        <li><FontAwesomeIcon className="fontIcon" icon={faBell} size="1x" />Notifications</li>
+                        <li><FontAwesomeIcon className="fontIcon" icon={faEnvelopeOpenText} size="1x" />Message</li>
+                        <li><FontAwesomeIcon className="fontIcon" icon={faBookmark} size="1x" />BookMarks</li>
+                        <li><FontAwesomeIcon className="fontIcon" icon={faListAlt} size="1x" />Lists</li>
+                        <li><FontAwesomeIcon className="fontIcon" icon={faEllipsisH} size="1x" />More</li>
                     </ul>
                 </nav>
                 <Link
-                    to="/profile"
-                    className="profileLinkd">
+                    className="linkProfile"
+                    to="/profile">
                     <FontAwesomeIcon icon={faUser} color={"#04AAFF"} size="2x" />
                     <span className="marginTop10">
                         {userObj.displayName
-                            ? ` ${userObj.displayName}`
+                            ? `  ${userObj.displayName}`
                             : "Profile"}
                     </span>
                 </Link>

@@ -6,7 +6,7 @@ import {
     faGithub,
 } from '@fortawesome/free-brands-svg-icons';
 import { authService, firebaseInstance } from 'fbase';
-import AuthForm from 'components/AuthForm';
+import AuthForm from 'components/Auth/AuthForm';
 
 const Auth = () => {
     const onSocialClick = async (event) => {
@@ -34,10 +34,10 @@ const Auth = () => {
             <div>
                 <div className="authBtns">
                     <button onClick={onSocialClick} name="google" className="authBtn">
-                        Continue with Google&#160;<FontAwesomeIcon icon={faGoogle} size="2x" />
+                        <span>Continue with Google&#160;</span><FontAwesomeIcon color="white" icon={faGoogle} size="2x" />
                     </button>
                     <button onClick={onSocialClick} name="github" className="authBtn">
-                        Continue with Github&#160;<FontAwesomeIcon icon={faGithub} size="2x" />
+                        <span>Continue with Github&#160;</span><FontAwesomeIcon color="white" icon={faGithub} size="2x" />
                     </button>
                 </div>
             </div>

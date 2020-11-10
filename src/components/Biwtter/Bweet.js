@@ -41,7 +41,7 @@ const Bweet = ({ bweetObj, isOwner }) => {
                         />
                         <input type="submit" value="Update Bweet" className="formBtn" />
                     </form>
-                    <span onClick={toggleEditing} className="formBtn cancelBtn">
+                    <span onClick={toggleEditing} className="cancelBtn">
                         Cancel
                     </span>
                 </>
@@ -50,21 +50,23 @@ const Bweet = ({ bweetObj, isOwner }) => {
                         <h4>{bweetObj.text}</h4>
                         {bweetObj.attachmentUrl && <img alt="" src={bweetObj.attachmentUrl} />}
                         {isOwner ? (
-                            <div className="bweet__actions">
-                                <span onClick={onDeleteClick}>
-                                    <FontAwesomeIcon icon={faTrash} />
+                            <>
+                                <div className="bweet__actions">
+                                    <span onClick={onDeleteClick}>
+                                        <FontAwesomeIcon icon={faTrash} />
+                                    </span>
+                                    <span onClick={toggleEditing}>
+                                        <FontAwesomeIcon icon={faPencilAlt} />
+                                    </span>
+                                </div>
+                                <span className="bweet__writer">
+                                    @{bweetObj.creatorName}
                                 </span>
-                                <span onClick={toggleEditing}>
-                                    <FontAwesomeIcon icon={faPencilAlt} />
-                                </span>
-                                <span>
-                                    by {bweetObj.creatorName}
-                                </span>
-                            </div>
+                            </>
                         ) : (
                                 <div className="bweet__actions">
                                     <span>
-                                        by {bweetObj.creatorName}
+                                        @{bweetObj.creatorName}
                                     </span>
                                 </div>
                             )}

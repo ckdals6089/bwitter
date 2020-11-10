@@ -1,10 +1,10 @@
 import React from 'react';
 import { HashRouter as Router, Route } from 'react-router-dom';
-import Auth from '../routes/Auth';
+import Auth from '../routes/Auth/Auth';
 import Home from '../routes/Home';
-import Profile from '../routes/Profile';
-import Navigation from './Navigation';
-import SideBar from './SideBar';
+import Profile from '../routes/Profile/Profile';
+import Navigation from './Navigation/Navigation';
+import SideBar from './Sidebar/SideBar';
 
 const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
     return (

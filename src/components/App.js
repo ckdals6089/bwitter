@@ -41,7 +41,7 @@ function App() {
 
       ) : (
           <div className="loadingIcon">
-            <FontAwesomeIcon icon={faTwitter} color={"#04AAFF"} size="10x" />
+            <FontAwesomeIcon icon={faTwitter} color={"White"} size="10x" />
             <h2>Bwitter!!!!</h2>
           </div>
         )}

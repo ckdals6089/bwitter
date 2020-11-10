@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { dbService } from 'fbase';
-import Bweet from 'components/Bweet';
-import CreateBweetForm from 'components/CreateBweetForm';
+import Bweet from '../components/Biwtter/Bweet'
+import CreateBweetForm from '../components/Biwtter/CreateBweetForm';
 
 const Home = ({ userObj }) => {
     const [bweets, setBweets] = useState([]);
