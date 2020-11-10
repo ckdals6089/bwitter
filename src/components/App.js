@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from "react";
-import AppRouter from "components/Router";
-import { authService } from "fbase";
+import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+import AppRouter from 'components/Router';
+import { authService } from 'fbase';
+
 
 function App() {
   const [init, setInit] = useState(false);
@@ -35,8 +38,12 @@ function App() {
           isLoggedIn={Boolean(userObj)}
           userObj={userObj}
         />
+
       ) : (
-          "Initializing..."
+          <div className="loadingIcon">
+            <FontAwesomeIcon icon={faTwitter} color={"#04AAFF"} size="10x" />
+            <h2>Bwitter!!!!</h2>
+          </div>
         )}
     </>
   );

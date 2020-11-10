@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { authService } from "fbase"
-import { useHistory } from "react-router-dom";
+import React, { useState } from 'react';
+import { authService } from 'fbase';
+import { useHistory } from 'react-router-dom';
 
 export default ({ refreshUser, userObj }) => {
     const history = useHistory();
