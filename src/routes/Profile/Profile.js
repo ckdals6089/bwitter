@@ -31,7 +31,6 @@ export default ({ refreshUser, userObj }) => {
                     onChange={onChange}
                     type="text"
                     autoFocus
-                    placeholder="Display name"
                     value={newDisplayName}
                     className="formInput"
                 />
@@ -39,6 +38,7 @@ export default ({ refreshUser, userObj }) => {
                     type="submit"
                     value="Update Profile"
                     className="profileFormBtn"
+                    onClick={() => { alert('Profile is updated successfully'); }}
                 />
             </form>
             <span className="profileCancelBtn logOut" onClick={onLogOutClick}>

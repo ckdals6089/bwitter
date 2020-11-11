@@ -3,7 +3,7 @@ import SideBarImg from '../../img/sidebar.png'
 const SideBar = () => {
     return (
         <div className="sideBarContainer">
-            <img src={SideBarImg} />
+            <img alt="" src={SideBarImg} />
         </div>
     );
 }

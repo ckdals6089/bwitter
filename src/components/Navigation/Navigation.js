@@ -4,40 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faHome, faCalendar, faUser, faEnvelopeOpenText, faBell, faBookmark, faListAlt, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 
-// const Navigation = ({ userObj }) => (
-//     <nav className="navnav">
-//         <ul className="navUlddddd">
-//             <li>
-//                 <Link to="/" className="twitterLinkd" >
-//                     <FontAwesomeIcon icon={faTwitter} color={"#04AAFF"} size="2x" />
-//                 </Link>
-//             </li>
-//             <li>
-//                 <Link
-//                     to="/profile"
-//                     className="profileLinkd"
-//                 >
-//                     <FontAwesomeIcon icon={faUser} color={"#04AAFF"} size="2x" />
-//                     <span className="marginTop10">
-//                         {userObj.displayName
-//                             ? `${userObj.displayName}의 Profile`
-//                             : "Profile"}
-//                     </span>
-//                 </Link>
-//             </li>
-//         </ul>
-//     </nav>
-// );
-
 const Navigation = ({ userObj }) => {
     return (
         <header>
             <div className="header_container">
-                <div className="bwitterIcon">
-                    <Link to="/" >
-                        <FontAwesomeIcon icon={faTwitter} color={"White"} size="2x" />
-                    </Link>
-                </div>
+                <Link to="/" >
+                    <FontAwesomeIcon className="bwitterIcon" icon={faTwitter} color={"White"} size="2x" />
+                </Link>
                 <nav>
                     <ul>
                         <Link to="/"><li><FontAwesomeIcon className="fontIcon" icon={faHome} size="1x" />Home</li></Link>
@@ -54,9 +27,7 @@ const Navigation = ({ userObj }) => {
                     to="/profile">
                     <FontAwesomeIcon icon={faUser} color={"#04AAFF"} size="2x" />
                     <span className="marginTop10">
-                        {userObj.displayName
-                            ? `  ${userObj.displayName}`
-                            : "Profile"}
+                        &#160;&#160;{userObj.displayName}
                     </span>
                 </Link>
             </div>

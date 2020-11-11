@@ -3,6 +3,9 @@
   margin-right: 140px;
   margin-bottom: 30px;
 }
+.bwitterIcon:hover {
+  color: #04aaff;
+}
 .linkProfile {
   transform: translateY(250px);
   margin-right: 45px;

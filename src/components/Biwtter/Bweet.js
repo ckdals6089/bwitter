@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { dbService, storageService } from 'fbase';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
+import { List, Image } from 'semantic-ui-react';
+
 
 const Bweet = ({ bweetObj, isOwner }) => {
     const [editing, setEditing] = useState(false);
@@ -47,8 +49,21 @@ const Bweet = ({ bweetObj, isOwner }) => {
                 </>
             ) : (
                     <>
-                        <h4>{bweetObj.text}</h4>
-                        {bweetObj.attachmentUrl && <img alt="" src={bweetObj.attachmentUrl} />}
+                        <List>
+                            <List.Item>
+                                <Image avatar alt="" src='https://react.semantic-ui.com/images/avatar/small/rachel.png' />
+                                <List.Content>
+                                    <List.Header>
+                                        <span className="bweet__writer">
+                                            @{bweetObj.creatorName}
+                                        </span></List.Header>
+                                    <List.Description>
+                                        <h4>{bweetObj.text}</h4>
+                                    </List.Description>
+                                </List.Content>
+                            </List.Item>
+                        </List>
+                        {bweetObj.attachmentUrl && <img className="bweetImage" alt="" src={bweetObj.attachmentUrl} />}
                         {isOwner ? (
                             <>
                                 <div className="bweet__actions">
@@ -59,12 +74,9 @@ const Bweet = ({ bweetObj, isOwner }) => {
                                         <FontAwesomeIcon icon={faPencilAlt} />
                                     </span>
                                 </div>
-                                <span className="bweet__writer">
-                                    @{bweetObj.creatorName}
-                                </span>
                             </>
                         ) : (
-                                <div className="bweet__actions">
+                                <div className="bweet__writer">
                                     <span>
                                         @{bweetObj.creatorName}
                                     </span>

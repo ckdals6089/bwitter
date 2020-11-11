@@ -11,11 +11,19 @@ function App() {
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
       if (user) {
-        setUserObj({
-          displayName: user.displayName,
-          uid: user.uid,
-          updateProfile: (args) => user.updateProfile(args),
-        });
+        if (user.displayName !== null) {
+          setUserObj({
+            displayName: user.displayName,
+            uid: user.uid,
+            updateProfile: (args) => user.updateProfile(args),
+          });
+        } if (user.displayName == null) {
+          setUserObj({
+            displayName: user.email,
+            uid: user.uid,
+            updateProfile: (args) => user.updateProfile(args),
+          });
+        }
       } else {
         setUserObj(null);
       }
