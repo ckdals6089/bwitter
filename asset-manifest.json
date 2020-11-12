@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/bwitter/static/css/main.72a1bfd8.chunk.css",
+    "main.js": "/bwitter/static/js/main.685ad6a6.chunk.js",
+    "main.js.map": "/bwitter/static/js/main.685ad6a6.chunk.js.map",
+    "runtime-main.js": "/bwitter/static/js/runtime-main.b824e115.js",
+    "runtime-main.js.map": "/bwitter/static/js/runtime-main.b824e115.js.map",
+    "static/js/2.52d3bd27.chunk.js": "/bwitter/static/js/2.52d3bd27.chunk.js",
+    "static/js/2.52d3bd27.chunk.js.map": "/bwitter/static/js/2.52d3bd27.chunk.js.map",
+    "index.html": "/bwitter/index.html",
+    "precache-manifest.58acd503394c6de7c20f4b15ca959431.js": "/bwitter/precache-manifest.58acd503394c6de7c20f4b15ca959431.js",
+    "service-worker.js": "/bwitter/service-worker.js",
+    "static/css/main.72a1bfd8.chunk.css.map": "/bwitter/static/css/main.72a1bfd8.chunk.css.map",
+    "static/js/2.52d3bd27.chunk.js.LICENSE.txt": "/bwitter/static/js/2.52d3bd27.chunk.js.LICENSE.txt",
+    "static/media/sidebar.png": "/bwitter/static/media/sidebar.b6fdb06d.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b824e115.js",
+    "static/js/2.52d3bd27.chunk.js",
+    "static/css/main.72a1bfd8.chunk.css",
+    "static/js/main.685ad6a6.chunk.js"
+  ]
+}
