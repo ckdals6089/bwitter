@@ -7,6 +7,7 @@ import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
 const CreateBweetForm = ({ userObj }) => {
     const [bweet, setbweet] = useState("");
     const [attachment, setAttachment] = useState("");
+    //submit create bweet 
     const onSubmit = async (event) => {
         if (bweet === "") {
             return;
@@ -20,23 +21,43 @@ const CreateBweetForm = ({ userObj }) => {
             const response = await attachmentRef.putString(attachment, "data_url");
             attachmentUrl = await response.ref.getDownloadURL();
         }
-        const bweetObj = {
-            text: bweet,
-            createdAt: Date.now(),
-            creatorId: userObj.uid,
-            creatorName: userObj.displayName,
-            attachmentUrl,
-        };
-        await dbService.collection("bweets").add(bweetObj);
-        setbweet("");
-        setAttachment("");
+        //sign in as guest
+        if (userObj.displayName === null) {
+            const bweetObj = {
+                text: bweet,
+                createdAt: Date.now(),
+                creatorId: userObj.uid,
+                creatorName: "Guest",
+                attachmentUrl
+            };
+            //collection bweet in firebase
+            await dbService.collection("bweets").add(bweetObj);
+            setbweet("");
+            setAttachment("");
+        }
+        //sign in as social login 
+        else {
+            const bweetObj = {
+                text: bweet,
+                createdAt: Date.now(),
+                creatorId: userObj.uid,
+                creatorName: userObj.displayName,
+                attachmentUrl,
+            };
+            await dbService.collection("bweets").add(bweetObj);
+            setbweet("");
+            setAttachment("");
+        }
     };
+
     const onChange = (event) => {
         const {
             target: { value },
         } = event;
         setbweet(value);
     };
+
+    //change attachment file to otehr one
     const onFileChange = (event) => {
         const reader = new FileReader();
         reader.onloadend = (finishedEvent) => {

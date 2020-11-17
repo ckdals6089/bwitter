@@ -26,9 +26,11 @@ const Navigation = ({ userObj }) => {
                     className="linkProfile"
                     to="/profile">
                     <FontAwesomeIcon icon={faUser} color={"#04AAFF"} size="2x" />
-                    <span className="marginTop10">
-                        &#160;&#160;{userObj.displayName}
-                    </span>
+                    {userObj.displayName ? (
+                        <span className="marginTop10">&#160;&#160;{userObj.displayName}</span>
+                    ) : (
+                            <span className="marginTop10">&#160;&#160;Guest</span>
+                        )}
                 </Link>
             </div>
         </header>

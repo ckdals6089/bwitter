@@ -33,3 +33,7 @@
   cursor: pointer;
   margin-top: 10px;
 }
+
+div form label {
+  margin-bottom: 10px;
+}

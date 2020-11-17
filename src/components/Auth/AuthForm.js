@@ -6,6 +6,7 @@ const AuthForm = () => {
     const [password, setPassword] = useState("");
     const [newAccount, setNewAccount] = useState(true);
     const [error, setError] = useState("");
+
     const onChange = (event) => {
         const {
             target: { name, value },
@@ -16,6 +17,7 @@ const AuthForm = () => {
             setPassword(value);
         }
     };
+
     const onSubmit = async (event) => {
         event.preventDefault();
         try {
@@ -28,11 +30,11 @@ const AuthForm = () => {
             } else {
                 data = await authService.signInWithEmailAndPassword(email, password);
             }
-            console.log(data);
         } catch (error) {
             setError(error.message);
         }
     };
+    //toggle account button between Sign in and Sreat account
     const toggleAccount = () => setNewAccount((prev) => !prev);
     return (
         <>
